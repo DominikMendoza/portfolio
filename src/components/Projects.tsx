@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
             {/* Default Content */}
             <div className="relative">
               <img 
-                src={`https://via.placeholder.com/500x300.png/0A0A0A/BB86FC?text=${project.name.replace(/\s/g, '+')}`} 
+                src={`images/${project.image}`}
                 alt={project.name} 
                 className="w-full h-48 object-cover"
               />

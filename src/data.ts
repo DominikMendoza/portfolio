@@ -49,6 +49,7 @@ export const personalData = {
       name: "DeepKer - Cardiovascular Alert System",
       role: "Backend Developer and Co-founder",
       date: "2024 – 2025",
+      image: "deepker.webp",
       github: "https://github.com/DeepKer-Org/deepker-backend",
       description: [
         "Developed complete backend using Go with Gin Framework for cardiovascular medical alert system",
