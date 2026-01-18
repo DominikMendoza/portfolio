@@ -1,6 +1,7 @@
 export const personalData = {
   name: "Dominik Mendoza",
-  tagline: "Software Engineer focused on building innovative digital experiences.",
+  tagline:
+    "Software Engineer focused on building innovative digital experiences.",
   contact: {
     email: "dommr003@gmail.com",
     github: "https://github.com/DominikMendoza",
@@ -11,8 +12,14 @@ export const personalData = {
     degree: "Bachelor's in Software Engineering",
     gpa: "18.32/20",
     graduation: "July 2025",
-    thesis: "DeepKer System for Cardiovascular Alerts - Backend developed in Go with Gin Framework",
-    relevantCourses: ["Competitive Programming", "Data Structures", "Algorithms", "Software Engineering"],
+    thesis:
+      "DeepKer System for Cardiovascular Alerts - Backend developed in Go with Gin Framework",
+    relevantCourses: [
+      "Competitive Programming",
+      "Data Structures",
+      "Algorithms",
+      "Software Engineering",
+    ],
   },
   experience: [
     {
@@ -27,7 +34,7 @@ export const personalData = {
             "Lead a high-performing team, providing mentorship and technical guidance.",
             "Design and propose scalable architectural solutions for new and existing features.",
             "Tech Stack: Java 21, Spring Boot, Microservices, REST API, Apache Kafka, AWS.",
-          ]
+          ],
         },
         {
           title: "Junior Software Engineer",
@@ -37,7 +44,7 @@ export const personalData = {
             "Resolved critical support tickets, improving system stability.",
             "Implemented AI features, including fine-tuning a language model for specific use cases.",
             "Proposed and implemented architectural improvements, utilizing technologies like OpenSearch.",
-          ]
+          ],
         },
         {
           title: "Trainee Software Engineer",
@@ -46,38 +53,69 @@ export const personalData = {
             "Contributed to the codebase by submitting pull requests for bug fixes and minor features.",
             "Gained proficiency in the team's tech stack, including Java, Spring Boot, and Hibernate.",
             "Assisted senior developers in various development tasks and learned team workflows.",
-          ]
+          ],
         },
       ],
     },
     {
       company: "Peruvian University of Applied Sciences",
       location: "Lima, Peru",
-      roles: [{
-        title: "Teaching Methods Advisor",
-        date: "March 2023 – Present",
-        description: [
-          "Provided individual tutoring and group sessions on structured programming, OOP, and data structures in C++.",
-          "Received outstanding evaluations from professors and students for instructional excellence.",
-        ],
-      }],
-      highlights: ["Conducted 'Introduction to Linux' workshops for IEEE for 2 consecutive years"],
+      roles: [
+        {
+          title: "Teaching Methods Advisor",
+          date: "March 2023 – Present",
+          description: [
+            "Provided individual tutoring and group sessions on structured programming, OOP, and data structures in C++.",
+            "Received outstanding evaluations from professors and students for instructional excellence.",
+          ],
+        },
+      ],
+      highlights: [
+        "Conducted 'Introduction to Linux' workshops for IEEE for 2 consecutive years",
+      ],
     },
   ],
   projects: [
     {
-      name: "DeepKer - Cardiovascular Alert System",
+      name: "DeepKer",
       role: "Backend Developer and Co-founder",
       date: "2024 – 2025",
       image: "deepker.webp",
       github: "https://github.com/DeepKer-Org/deepker-backend",
-      description: [
-        "Developed complete backend using Go with Gin Framework for cardiovascular medical alert system.",
-        "Implemented user management system and real-time notification capabilities.",
-        "Integrated Redis for high-performance caching and PostgreSQL as primary database.",
-        "Collaborated in team to deliver comprehensive cardiovascular health monitoring solution",
-      ],
+      description:
+        "A medical alert system featuring real-time notifications and high-performance caching for cardiovascular monitoring.",
       technologies: ["Go", "Gin", "Redis", "PostgreSQL"],
+    },
+    {
+      name: "LifeTravel",
+      role: "Backend Developer",
+      date: "2024 - 2025",
+      image: "lifetravel.jpg",
+      github: "https://github.com/NexusNova-IOT",
+      description:
+        "An IoT-integrated platform connecting tourists with travel agencies through personalized experiences and native mobile monitoring.",
+      technologies: ["IoT", "Native Mobile", "Web", "Cloud"],
+    },
+    {
+      name: "BinaryCode-wave",
+      role: "Lead Developer",
+      date: "2025 - 2026",
+      image: "binary-wave.jpg",
+      github: "https://github.com/BinaryCode-wave/BinaryCode-wave",
+      description:
+        "A music recommendation system using graph theory to model song similarities as weighted edges for optimized discovery.",
+      technologies: ["Python", "Graphs", "Algorithms"],
+    },
+
+    {
+      name: "SaCat Fintech",
+      role: "Backend Developer",
+      date: "2024 - 2025",
+      image: "sacat-fintech.jpg",
+      github: "https://github.com/SaCat-Fintech/app-backend",
+      description:
+        "A smart finance simulator designed to optimize purchasing decisions through financial data analysis.",
+      technologies: ["Node.js", "Express", "Fintech API"],
     },
   ],
   leadershipAndActivities: [
@@ -93,9 +131,29 @@ export const personalData = {
     },
   ],
   skills: {
-    technical: ["Java", "Spring Boot", "Go", "Gin Framework", "MySQL", "PostgreSQL", "Redis", "Docker", "AWS", "Microservices", "Git"],
+    technical: [
+      "Java",
+      "Spring Boot",
+      "Go",
+      "Gin Framework",
+      "MySQL",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "AWS",
+      "Microservices",
+      "Git",
+    ],
     languages: ["Spanish (Native)", "English (Advanced)"],
-    certifications: ["IBM Cybersecurity Analyst Professional (2023)", "Microsoft Azure AI Fundamentals (2023)"],
+    certifications: [
+      "IBM Cybersecurity Analyst Professional (2023)",
+      "Microsoft Azure AI Fundamentals (2023)",
+    ],
   },
-  interests: ["Competitive Programming", "Artificial Intelligence", "Software Architecture", "Team Leadership"],
+  interests: [
+    "Competitive Programming",
+    "Artificial Intelligence",
+    "Software Architecture",
+    "Team Leadership",
+  ],
 };

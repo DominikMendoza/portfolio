@@ -42,11 +42,9 @@ const Projects: React.FC = () => {
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-black/80 flex items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="text-white">
-                  <ul className="list-disc list-inside space-y-1 mb-4">
-                    {project.description.map((desc, i) => (
-                      <li key={i}>{desc}</li>
-                    ))}
-                  </ul>
+                  <p className="text-sm leading-relaxed mb-4">
+                    {project.description}
+                  </p>
                   <p className="mt-4 inline-flex items-center text-[var(--color-accent-purple)] font-bold">
                     View on GitHub
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
