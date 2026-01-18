@@ -2,52 +2,8 @@ import React from 'react';
 import { personalData } from '../data';
 import { motion } from 'framer-motion';
 
-interface TimelineEvent {
-  type: 'company' | 'role';
-  title: string;
-  subtitle: string; // Company location or role date
-  description?: string[];
-  highlights?: string[];
-  date: string; // For sorting
-  companyName?: string; // For role events
-}
-
 const Experience: React.FC = () => {
   const { experience } = personalData;
-
-  // Flatten and sort all experience events chronologically
-  const timelineEvents: TimelineEvent[] = [];
-
-  experience.forEach(exp => {
-    // Add company start as an event
-    timelineEvents.push({
-      type: 'company',
-      title: exp.company,
-      subtitle: exp.location,
-      date: exp.roles[0].date.split(' – ')[0], // Use start date of first role for company entry
-    });
-
-    // Add each role as a separate event
-    exp.roles.forEach(role => {
-      timelineEvents.push({
-        type: 'role',
-        title: role.title,
-        subtitle: role.date,
-        description: exp.description, // Reusing company description for all roles for now
-        highlights: exp.highlights,
-        date: role.date.split(' – ')[0],
-        companyName: exp.company,
-      });
-    });
-  });
-
-  // Sort events chronologically (simplistic date parsing for example)
-  timelineEvents.sort((a, b) => {
-    // A more robust date parsing would be needed for complex date strings
-    const dateA = new Date(a.date.replace('Present', '2100'));
-    const dateB = new Date(b.date.replace('Present', '2100'));
-    return dateA.getTime() - dateB.getTime();
-  });
 
   return (
     <motion.section
@@ -60,41 +16,40 @@ const Experience: React.FC = () => {
     >
       <h2 className="text-4xl font-bold text-center mb-12 text-[var(--color-text-light)]">Experience</h2>
       <div className="max-w-4xl mx-auto">
-        {timelineEvents.map((event, index) => (
-          <div key={index} className="relative pl-12 pb-8 last:pb-0">
-            {/* Vertical line */}
+        {experience.map((exp, expIndex) => (
+          <div key={expIndex} className="relative pl-8 pb-4 last:pb-0">
+            {/* Main vertical line */}
             <div className="absolute left-3 top-0 h-full w-0.5 bg-[var(--color-accent-purple)]"></div>
             
-            {/* Dot for event */}
-            <div 
-              className={`absolute left-0 top-0 h-6 w-6 rounded-full border-2 border-[var(--color-dark-bg)] flex items-center justify-center
-                ${event.type === 'company' ? 'bg-[var(--color-accent-blue)]' : 'bg-[var(--color-accent-purple)]'}
-              `}
-            >
-              {/* Optional: inner dot or icon */}
+            {/* Company Entry */}
+            <div className="relative mb-8">
+              <div className="absolute left-[-8px] top-1 h-4 w-4 rounded-full bg-[var(--color-accent-blue)] border-2 border-[var(--color-dark-bg)]"></div>
+              <h3 className="text-2xl font-bold text-[var(--color-text-light)] ml-8">{exp.company}</h3>
+              <p className="text-[var(--color-text-muted)] ml-8">{exp.location}</p>
             </div>
 
-            <div className="ml-4">
-              <h3 className={`text-xl font-bold ${event.type === 'company' ? 'text-[var(--color-accent-blue)] text-2xl' : 'text-[var(--color-text-light)]'}`}>
-                {event.title}
-              </h3>
-              <p className="text-sm text-[var(--color-text-muted)]">{event.subtitle}</p>
-              {event.companyName && <p className="text-xs text-[var(--color-text-muted)] italic">{event.companyName}</p>}
-
-              {(event.description && event.type === 'role') && ( // Only show description for role events
-                <ul className="list-disc list-inside text-[var(--color-text-light)] pl-4 mt-2">
-                  {event.description.map((item, descIndex) => (
-                    <li key={descIndex}>{item}</li>
-                  ))}
-                </ul>
-              )}
-              {event.highlights && (
-                <ul className="list-disc list-inside text-[var(--color-text-light)] pl-4 mt-2">
-                  {event.highlights.map((item, highlightIndex) => (
-                    <li key={highlightIndex} className="text-[var(--color-accent-purple)] font-medium">{item}</li>
-                  ))}
-                </ul>
-              )}
+            {/* Roles timeline */}
+            <div className="ml-8">
+              {exp.roles.map((role, roleIndex) => (
+                <div key={roleIndex} className="relative pb-6 last:pb-0 pl-8">
+                   {/* Role Dot */}
+                   <div className="absolute left-[-2px] top-1.5 h-3 w-3 rounded-full bg-[var(--color-accent-purple)] border-2 border-[var(--color-dark-bg)]"></div>
+                  <h4 className="text-xl font-semibold text-[var(--color-text-light)]">{role.title}</h4>
+                  <p className="text-sm text-[var(--color-text-muted)] mb-2">{role.date}</p>
+                  <ul className="list-disc list-inside text-[var(--color-text-light)] pl-4 marker:text-[var(--color-accent-blue)]">
+                    {role.description?.map((item, descIndex) => (
+                      <li key={descIndex}>{item}</li>
+                    ))}
+                  </ul>
+                   {exp.highlights && (
+                      <ul className="list-disc list-inside text-[var(--color-text-light)] pl-4 mt-2">
+                        {exp.highlights.map((item, index) => (
+                          <li key={index} className="text-[var(--color-accent-purple)] font-medium">{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                </div>
+              ))}
             </div>
           </div>
         ))}

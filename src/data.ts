@@ -19,29 +19,49 @@ export const personalData = {
       company: "Ensolvers",
       location: "California, United States (Remote)",
       roles: [
-        { title: "Support Team Lead", date: "December 2023 – Present" },
-        { title: "Software Engineer II", date: "December 2023 – Present" },
-        { title: "Junior Software Engineer", date: "Unknown Start Date – December 2023" }, // Based on user's prompt
-        { title: "Trainee Software Engineer", date: "Unknown Start Date – Junior Role" }, // Based on user's prompt
-      ],
-      description: [
-        "Led direct customer support team, coordinating incident resolution and improving customer satisfaction metrics",
-        "Developed AI features for Hyros project, implementing fine-tuning and integration with external platforms (Shopify GraphQL, Mailchimp, SendGrid)",
-        "Designed and maintained microservices using Java 21, Spring Boot, REST API, Hibernate, JPA, and Apache Kafka",
-        "Managed MySQL, Redis, and Memcache databases for performance optimization",
-        "Implemented cloud solutions with AWS (S3, CloudWatch, OpenSearch) and monitoring with New Relic",
+        {
+          title: "Team Lead & Software Engineer II",
+          date: "September 2025 – Present",
+          description: [
+            "Evaluate client feature requests and coordinate team tasks and priorities.",
+            "Lead a high-performing team, providing mentorship and technical guidance.",
+            "Design and propose scalable architectural solutions for new and existing features.",
+            "Tech Stack: Java 21, Spring Boot, Microservices, REST API, Apache Kafka, AWS.",
+          ]
+        },
+        {
+          title: "Junior Software Engineer",
+          date: "March 2024 – September 2025",
+          description: [
+            "Developed complex features, including full-stack integrations with external platforms (Shopify, Mailchimp).",
+            "Resolved critical support tickets, improving system stability.",
+            "Implemented AI features, including fine-tuning a language model for specific use cases.",
+            "Proposed and implemented architectural improvements, utilizing technologies like OpenSearch.",
+          ]
+        },
+        {
+          title: "Trainee Software Engineer",
+          date: "December 2023 – March 2024",
+          description: [
+            "Contributed to the codebase by submitting pull requests for bug fixes and minor features.",
+            "Gained proficiency in the team's tech stack, including Java, Spring Boot, and Hibernate.",
+            "Assisted senior developers in various development tasks and learned team workflows.",
+          ]
+        },
       ],
     },
     {
       company: "Peruvian University of Applied Sciences",
       location: "Lima, Peru",
-      roles: [{ title: "Teaching Methods Advisor", date: "March 2023 – Present" }],
-      description: [
-        "Provided individual tutoring and group sessions on structured programming, OOP, and data structures in C++",
-        "Conducted 'Introduction to Linux' workshops for IEEE for 2 consecutive years",
-        "Received outstanding evaluations from professors and students for instructional excellence",
-      ],
-      highlights: ["Conducted 'Introduction to Linux' workshops for IEEE (2023, 2024)"],
+      roles: [{
+        title: "Teaching Methods Advisor",
+        date: "March 2023 – Present",
+        description: [
+          "Provided individual tutoring and group sessions on structured programming, OOP, and data structures in C++.",
+          "Received outstanding evaluations from professors and students for instructional excellence.",
+        ],
+      }],
+      highlights: ["Conducted 'Introduction to Linux' workshops for IEEE for 2 consecutive years"],
     },
   ],
   projects: [
@@ -52,9 +72,9 @@ export const personalData = {
       image: "deepker.webp",
       github: "https://github.com/DeepKer-Org/deepker-backend",
       description: [
-        "Developed complete backend using Go with Gin Framework for cardiovascular medical alert system",
-        "Implemented user management system and real-time notification capabilities",
-        "Integrated Redis for high-performance caching and PostgreSQL as primary database",
+        "Developed complete backend using Go with Gin Framework for cardiovascular medical alert system.",
+        "Implemented user management system and real-time notification capabilities.",
+        "Integrated Redis for high-performance caching and PostgreSQL as primary database.",
         "Collaborated in team to deliver comprehensive cardiovascular health monitoring solution",
       ],
       technologies: ["Go", "Gin", "Redis", "PostgreSQL"],
@@ -66,7 +86,7 @@ export const personalData = {
       role: "Senior Member",
       date: "September 2022 – December 2024",
       description: [
-        "Represented the university in international ICPC and IEEEXtreme competitions",
+        "Represented the university in international ICPC and IEEEXtreme competitions.",
         "Achieved 14th place regionally in ICPC South America Finals 2023 with team 'DigitalCodeX'",
         "Reached 38th position in South America in IEEEXtreme 16.0 Programming Competition",
       ],
