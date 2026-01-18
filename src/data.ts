@@ -1,6 +1,6 @@
 export const personalData = {
   name: "Dominik Mendoza",
-  tagline: "Ingeniero de Software enfocado en construir experiencias digitales innovadoras.",
+  tagline: "Software Engineer focused on building innovative digital experiences.",
   contact: {
     email: "dommr003@gmail.com",
     github: "https://github.com/DominikMendoza",

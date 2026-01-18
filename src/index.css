@@ -1,3 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-dark-bg: #0A0A0A;
+  --color-dark-surface: rgba(26, 26, 26, 0.5);
+  --color-accent-purple: #BB86FC;
+  --color-accent-blue: #03DAC6;
+  --color-text-light: #E0E0E0;
+  --color-text-muted: #B0B0B0;
+
+  --font-family-sans: "Inter", sans-serif;
+
+  --background-image-radial-gradient: radial-gradient(circle at top, #2a0a4a, #0a0a0a 40%);
+
+  --animation-fade-in-up: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
