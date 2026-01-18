@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { personalData } from './data';
 import Experience from './components/Experience';
 import Education from './components/Education';
@@ -7,8 +7,17 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import { motion } from 'framer-motion';
 
+const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  e.preventDefault();
+  const targetElement = document.getElementById(targetId);
+  if (targetElement) {
+    window.history.pushState(null, '', `/${targetId}`);
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 // Hero Component
-const Hero: React.FC = () => {
+const Hero: React.FC<{ onNavClick: (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => void }> = ({ onNavClick }) => {
   return (
     <motion.section 
       id="hero" 
@@ -24,7 +33,8 @@ const Hero: React.FC = () => {
         {personalData.tagline}
       </p>
       <motion.a
-        href="#projects"
+        href="/projects"
+        onClick={(e) => onNavClick(e, 'projects')}
         className="bg-[var(--color-accent-purple)] text-[var(--color-dark-bg)] font-bold py-3 px-8 rounded-full inline-block"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -77,24 +87,41 @@ const AboutMe: React.FC = () => {
 
 
 function App() {
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname.substring(1);
+      const targetElement = document.getElementById(path || 'hero');
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    handlePopState(); // Handle initial load
+
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[var(--color-dark-bg)] bg-[var(--background-image-radial-gradient)] text-[var(--color-text-light)] font-[var(--font-family-sans)]">
       <header className="sticky top-0 z-50 py-4 px-6 md:px-12 bg-[var(--color-dark-surface)] backdrop-blur-lg border-b border-white/10 shadow-md">
         <nav className="flex justify-between items-center max-w-6xl mx-auto">
-          <a href="#" className="text-2xl font-bold text-[var(--color-text-light)] hover:text-[var(--color-accent-blue)] transition-colors">Dominik.dev</a>
+          <a href="/" onClick={(e) => handleNavClick(e, 'hero')} className="text-2xl font-bold text-[var(--color-text-light)] hover:text-[var(--color-accent-blue)] transition-colors">dommr.org</a>
           <ul className="flex space-x-6">
-            <li><a href="#about" className="hover:text-[var(--color-accent-purple)] transition-colors">About</a></li>
-            <li><a href="#experience" className="hover:text-[var(--color-accent-purple)] transition-colors">Experience</a></li>
-            <li><a href="#projects" className="hover:text-[var(--color-accent-purple)] transition-colors">Projects</a></li>
-            <li><a href="#education" className="hover:text-[var(--color-accent-purple)] transition-colors">Education</a></li>
-            <li><a href="#achievements" className="hover:text-[var(--color-accent-purple)] transition-colors">Achievements</a></li>
-            <li><a href="#contact" className="hover:text-[var(--color-accent-purple)] transition-colors">Contact</a></li>
+            <li><a href="/about" onClick={(e) => handleNavClick(e, 'about')} className="hover:text-[var(--color-accent-purple)] transition-colors">About</a></li>
+            <li><a href="/experience" onClick={(e) => handleNavClick(e, 'experience')} className="hover:text-[var(--color-accent-purple)] transition-colors">Experience</a></li>
+            <li><a href="/projects" onClick={(e) => handleNavClick(e, 'projects')} className="hover:text-[var(--color-accent-purple)] transition-colors">Projects</a></li>
+            <li><a href="/education" onClick={(e) => handleNavClick(e, 'education')} className="hover:text-[var(--color-accent-purple)] transition-colors">Education</a></li>
+            <li><a href="/achievements" onClick={(e) => handleNavClick(e, 'achievements')} className="hover:text-[var(--color-accent-purple)] transition-colors">Achievements</a></li>
+            <li><a href="/contact" onClick={(e) => handleNavClick(e, 'contact')} className="hover:text-[var(--color-accent-purple)] transition-colors">Contact</a></li>
           </ul>
         </nav>
       </header>
 
       <main className="container mx-auto px-6 md:px-12 py-8 space-y-20">
-        <Hero />
+        <Hero onNavClick={handleNavClick} />
         <AboutMe />
         <Experience />
         <Projects />
