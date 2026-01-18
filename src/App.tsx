@@ -1,6 +1,8 @@
 import React from 'react';
 import { personalData } from './data';
-import ExperienceTimeline from './components/ExperienceTimeline';
+import Experience from './components/Experience';
+import Education from './components/Education';
+import Achievements from './components/Achievements';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import { motion } from 'framer-motion';
@@ -35,7 +37,7 @@ const Hero: React.FC = () => {
 
 // About Me Component
 const AboutMe: React.FC = () => {
-  const { education, interests, skills } = personalData;
+  const { interests, skills } = personalData;
 
   return (
     <motion.section
@@ -49,13 +51,10 @@ const AboutMe: React.FC = () => {
       <h2 className="text-4xl font-bold text-center mb-12 text-[var(--color-text-light)]">About Me</h2>
       <div className="max-w-4xl mx-auto text-[var(--color-text-light)] space-y-6">
         <p className="text-lg">
-          I am a Software Engineering student at the{' '}
-          <span className="text-[var(--color-accent-blue)]">{education.university}</span>, with a GPA of{' '}
-          <span className="text-[var(--color-accent-blue)]">{education.gpa}</span>. My thesis focuses on the{' '}
-          <span className="italic">"{education.thesis.split(' - ')[0]}"</span>. I am passionate about building solutions that solve complex problems.
+          I am a passionate Software Engineer focused on building solutions that solve complex problems. I am always looking for new challenges and opportunities to learn and grow.
         </p>
         <p className="text-lg">
-          My interests include: <span className="text-[var(--color-accent-blue)]">{interests.join(', ')}</span>. I am always looking for new challenges and opportunities to learn and grow.
+          My interests include: <span className="text-[var(--color-accent-blue)]">{interests.join(', ')}</span>.
         </p>
         <div className="pt-4">
           <h3 className="text-2xl font-bold mb-4">Technical Skills</h3>
@@ -87,6 +86,8 @@ function App() {
             <li><a href="#about" className="hover:text-[var(--color-accent-purple)] transition-colors">About</a></li>
             <li><a href="#experience" className="hover:text-[var(--color-accent-purple)] transition-colors">Experience</a></li>
             <li><a href="#projects" className="hover:text-[var(--color-accent-purple)] transition-colors">Projects</a></li>
+            <li><a href="#education" className="hover:text-[var(--color-accent-purple)] transition-colors">Education</a></li>
+            <li><a href="#achievements" className="hover:text-[var(--color-accent-purple)] transition-colors">Achievements</a></li>
             <li><a href="#contact" className="hover:text-[var(--color-accent-purple)] transition-colors">Contact</a></li>
           </ul>
         </nav>
@@ -95,8 +96,10 @@ function App() {
       <main className="container mx-auto px-6 md:px-12 py-8 space-y-20">
         <Hero />
         <AboutMe />
-        <ExperienceTimeline />
+        <Experience />
         <Projects />
+        <Education />
+        <Achievements />
         <Contact />
       </main>
 

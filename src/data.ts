@@ -56,6 +56,7 @@ export const personalData = {
         "Integrated Redis for high-performance caching and PostgreSQL as primary database",
         "Collaborated in team to deliver comprehensive cardiovascular health monitoring solution",
       ],
+      technologies: ["Go", "Gin", "Redis", "PostgreSQL"],
     },
   ],
   leadershipAndActivities: [
